@@ -1,0 +1,16 @@
+Router>enable
+Router#configure terminal
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 192.168.0.1 255.255.255.0
+Router(config-if)#no shut
+Router(config-if)#
+Router(config-if)#exit
+
+Router(config)#ip dhcp pool ABC-POOL
+Router(dhcp-config)#network 192.168.0.0 255.255.255.0
+Router(dhcp-config)#default-router 192.168.0.254
+Router(dhcp-config)#dns-server 192.168.0.1
+Router(dhcp-config)#exit
+Router(config)#exit
+Router#write memory
